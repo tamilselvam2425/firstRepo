@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to my website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff7e5f;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #feb47b;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 id="welcome-heading">Welcome to my website</h1>
+        <button onclick="changeText()">Click me!</button>
+    </div>
+    <script>
+        function changeText() {
+            const heading = document.getElementById('welcome-heading');
+            heading.textContent = "Thanks for visiting!";
+            heading.style.animation = 'none'; // Reset animation
+            void heading.offsetWidth; // Trigger reflow
+            heading.style.animation = 'fadeIn 2s ease-in-out'; // Reapply animation
+        }
+    </script>
+</body>
+</html>
